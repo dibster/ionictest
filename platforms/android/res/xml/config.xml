@@ -12,12 +12,12 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
-    <name>HelloCordova</name>
+    <name>EVRYTHNG Mobile</name>
     <description>
         An Ionic Framework and Cordova project.
     </description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+    <author email="dave.ashenhurst@evrythng.com" href="http://www.evrythng.com/">
+	      Evrythng SA
     </author>
     <content src="index.html" />
     <access origin="*" />

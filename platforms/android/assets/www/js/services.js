@@ -1,8 +1,18 @@
+var url = 'https://dev.evrythng.com/';
+
 angular.module('starter.services', [])
 
 /**
  * A simple example service that returns some data.
  */
+//
+//.factory('Products', function($resource) {
+//
+//    return $resource(url + 'products?access_token=1wyTVImqesxRkuCnAAjgJiwWwZjUzu3xDxeqdYVQhv69SeWxkqKfoMALp5KBDlPbVirleglAGWSlSYQK', {});
+//
+//})
+
+
 .factory('Friends', function() {
   // Might use a resource here that returns a JSON array
 

@@ -61,6 +61,40 @@ angular.module('starter.services', [])
         }
 })
 
+// get Actions
+.factory('Actions',
+    function Actions($http, API){
+
+        return {
+            allOfType: function(type) {
+                return  $http({
+                   url: API.url + 'actions/' + type +  '?access_token=' + API.key,
+                   method: "GET",
+                   headers: {'Content-Type': 'application/json; charset=utf-8'}
+                   })
+                   .success(function (actions) {
+                       return actions;
+                   })
+                   .error(function () {
+                       return 'Error';
+                   });
+            },
+            get : function(actionId) {
+                return  $http({
+                    url: API.url + 'actions/' +actionId + '?access_token=' + API.key,
+                    method: "GET",
+                    headers: {'Content-Type': 'application/json; charset=utf-8'}
+                })
+                    .success(function (action) {
+                        return action;
+                    })
+                    .error(function () {
+                        return 'Error';
+                    });
+            }
+        }
+})
+
 // supplied example
 .factory('Friends', function Friends () {
   // Might use a resource here that returns a JSON array

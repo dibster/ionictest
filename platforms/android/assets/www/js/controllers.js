@@ -1,24 +1,18 @@
 
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 
-.controller('DashCtrl', function($scope, $http) {
+.controller('ProductsCtrl', function($scope, Products, $ionicLoading) {
 
-        $http({
-            url: 'https://api.evrythng.com/products?access_token=1wyTVImqesxRkuCnAAjgJiwWwZjUzu3xDxeqdYVQhv69SeWxkqKfoMALp5KBDlPbVirleglAGWSlSYQK',
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-            }
-             })
-            .success(function(products) {
-                // this callback will be called asynchronously
-                // when the response is available
-                $scope.products = products;
-                console.log(products);
-            });
+        $ionicLoading.show({
+            template: 'Loading...'
+        });
 
-
+       Products.all().then(function (result) {
+          $scope.products = result.data;
+          $ionicLoading.hide();
+          console.log($scope.products[0]);
+        });
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
@@ -30,5 +24,34 @@ angular.module('starter.controllers', [])
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('ProductDetailCtrl', function($scope, $stateParams, Products, $ionicLoading) {
+        $ionicLoading.show({
+            template: 'Loading...'
+        });
+
+        Products.get($stateParams.productId).then(function (result) {
+            $scope.product = result.data;
+            //todo add custom fields as service will return custom fields Object
+            $ionicLoading.hide();
+            $scope.customFields = [];
+
+            // get the extended properties
+            if (!(_.isEmpty($scope.product.customFields))) {
+                var cf = $scope.product.customFields;
+                for (var key in cf) {
+                    if (cf.hasOwnProperty(key)) {
+                        var customField = {};
+                        customField.name = key;
+                        customField.value = cf[key];
+                        $scope.customFields.push(customField);
+                        console.log(key + " -> " + cf[key]);
+                    }
+                }
+            }
+        });
+
+})
+
+.controller('AccountCtrl', function($scope, API) {
+        $scope.APIKey = API.key;
 });

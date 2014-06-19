@@ -2,10 +2,16 @@
 angular.module('starter.controllers', ['ionic'])
 
 
-.controller('ProductsCtrl', function($scope, Products) {
+.controller('ProductsCtrl', function($scope, Products, $ionicLoading) {
+
+        $ionicLoading.show({
+            template: 'Loading...'
+        });
 
        Products.all().then(function (result) {
           $scope.products = result.data;
+          $ionicLoading.hide();
+          console.log($scope.products[0]);
         });
 })
 
@@ -15,12 +21,23 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  console.log('in friend ctrl');
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('ProductDetailCtrl', function($scope, $stateParams, Friends) {
-  console.log('in product  2 ctrl');
+.controller('ProductDetailCtrl', function($scope, $stateParams, Products, $ionicLoading, CustomFields) {
+        $ionicLoading.show({
+            template: 'Loading...'
+        });
+
+        Products.get($stateParams.productId).then(function (result) {
+            $scope.product = result.data;
+
+            $ionicLoading.hide();
+            // reformat custom fields
+            $scope.customFields = [];
+            $scope.customFields = CustomFields.reformat($scope.product.customFields);
+       });
+
 })
 
 .controller('AccountCtrl', function($scope, API) {

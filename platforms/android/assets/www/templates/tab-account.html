@@ -1,10 +1,9 @@
-<ion-view title="Account">
+<ion-view title="Settings">
   <ion-content class="has-header padding">
-    <h1>Account</h1>
-
+    <h1>Account Settings</h1>
       <ul class="list">
           <li class="item item-toggle">
-              HTML5
+              Auto Refresh
               <label class="toggle toggle-assertive">
                   <input type="checkbox">
                   <div class="track">
@@ -13,7 +12,7 @@
               </label>
           </li>
           <li class="item item-toggle">
-              Javascript
+              Cache Data
               <label class="toggle toggle-assertive">
                   <input type="checkbox">
                   <div class="track">
@@ -22,5 +21,13 @@
               </label>
           </li>
       </ul>
+      <form role="form">
+          <div class="form-group">
+              <label for="APIKey">API Key </label>
+              <input type="text" class="form-control" id="APIKey" data-ng-model="APIKey" placeholder="Api Key">
+          </div>
+      </form>
+
+
   </ion-content>
 </ion-view>

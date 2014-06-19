@@ -7,6 +7,26 @@ angular.module('starter.services', [])
         return {url : 'http://api.evrythng.com/', key : '1wyTVImqesxRkuCnAAjgJiwWwZjUzu3xDxeqdYVQhv69SeWxkqKfoMALp5KBDlPbVirleglAGWSlSYQK'};
 })
 
+// Custom Fields Service, returns collection, easier to parse with ng-repeat
+.service('CustomFields', function(){
+        return {
+            reformat: function (evrythngCustomFields) {
+                var angularFieldCollection = [];
+                if (!(_.isEmpty(evrythngCustomFields))) {
+                    for (var key in evrythngCustomFields) {
+                        if (evrythngCustomFields.hasOwnProperty(key)) {
+                            var customField = {};
+                            customField.name = key;
+                            customField.value = evrythngCustomFields[key];
+                            angularFieldCollection.push(customField);
+                        }
+                    }
+                }
+                return angularFieldCollection;
+            }
+        }
+})
+
 // get products
 .factory('Products',
     function Products($http, API){
@@ -24,6 +44,19 @@ angular.module('starter.services', [])
                    .error(function () {
                        return 'Error';
                    });
+            },
+            get : function(productId) {
+                return  $http({
+                    url: API.url + 'products/' + productId + '?access_token=' + API.key,
+                    method: "GET",
+                    headers: {'Content-Type': 'application/json; charset=utf-8'}
+                })
+                    .success(function (product) {
+                        return product;
+                    })
+                    .error(function () {
+                        return 'Error';
+                    });
             }
         }
 })

@@ -39,10 +39,11 @@
 /home/dibster/ionicApp/platforms/android/assets/www/lib \
 /home/dibster/ionicApp/platforms/android/assets/www/cordova_plugins.js \
 /home/dibster/ionicApp/platforms/android/assets/www/README.md \
-/home/dibster/ionicApp/platforms/android/assets/www/templates/tab-dash.html \
+/home/dibster/ionicApp/platforms/android/assets/www/templates/tab-products.html \
 /home/dibster/ionicApp/platforms/android/assets/www/templates/friend-detail.html \
 /home/dibster/ionicApp/platforms/android/assets/www/templates/tab-friends.html \
 /home/dibster/ionicApp/platforms/android/assets/www/templates/tab-account.html \
+/home/dibster/ionicApp/platforms/android/assets/www/templates/product-detail.html \
 /home/dibster/ionicApp/platforms/android/assets/www/templates/tabs.html \
 /home/dibster/ionicApp/platforms/android/assets/www/js/app.js \
 /home/dibster/ionicApp/platforms/android/assets/www/js/controllers.js \
@@ -56,6 +57,7 @@
 /home/dibster/ionicApp/platforms/android/assets/www/img/ionic.png \
 /home/dibster/ionicApp/platforms/android/assets/www/css/style.css \
 /home/dibster/ionicApp/platforms/android/assets/www/lib/ionic \
+/home/dibster/ionicApp/platforms/android/assets/www/lib/lodash \
 /home/dibster/ionicApp/platforms/android/assets/www/lib/ionic/js \
 /home/dibster/ionicApp/platforms/android/assets/www/lib/ionic/fonts \
 /home/dibster/ionicApp/platforms/android/assets/www/lib/ionic/css \
@@ -123,4 +125,5 @@
 /home/dibster/ionicApp/platforms/android/assets/www/lib/ionic/scss/ionicons/ionicons.scss \
 /home/dibster/ionicApp/platforms/android/assets/www/lib/ionic/scss/ionicons/_ionicons-variables.scss \
 /home/dibster/ionicApp/platforms/android/assets/www/lib/ionic/scss/ionicons/_ionicons-animation.scss \
+/home/dibster/ionicApp/platforms/android/assets/www/lib/lodash/lodash.min.js \
 /home/dibster/ionicApp/platforms/android/ant-build/AndroidManifest.xml \
